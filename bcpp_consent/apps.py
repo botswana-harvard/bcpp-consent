@@ -2,8 +2,12 @@ from django.apps import AppConfig as DjangoAppConfig
 from django.conf import settings
 
 
+ANONYMOUS_CONSENT_GROUP = 'anonymous'
+
+
 class AppConfig(DjangoAppConfig):
     name = 'bcpp_consent'
+    anonymous_consent_group = ANONYMOUS_CONSENT_GROUP
 
 
 if settings.APP_NAME == 'bcpp_consent':
