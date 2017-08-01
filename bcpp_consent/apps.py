@@ -4,6 +4,7 @@ from django.conf import settings
 
 class AppConfig(DjangoAppConfig):
     name = 'bcpp_consent'
+    anonymous_consent_group = settings.ANONYMOUS_CONSENT_GROUP
 
 
 if settings.APP_NAME == 'bcpp_consent':
