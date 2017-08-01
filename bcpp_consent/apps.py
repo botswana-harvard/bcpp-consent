@@ -2,12 +2,9 @@ from django.apps import AppConfig as DjangoAppConfig
 from django.conf import settings
 
 
-ANONYMOUS_CONSENT_GROUP = 'anonymous'
-
-
 class AppConfig(DjangoAppConfig):
     name = 'bcpp_consent'
-    anonymous_consent_group = ANONYMOUS_CONSENT_GROUP
+    anonymous_consent_group = settings.ANONYMOUS_CONSENT_GROUP
 
 
 if settings.APP_NAME == 'bcpp_consent':
@@ -23,7 +20,9 @@ if settings.APP_NAME == 'bcpp_consent':
         protocol_title = 'Botswana Combination Prevention Project'
         subject_types = [
             SubjectType('subject', 'Research Subject',
-                        Cap(model_name='bcpp_subject.subjectconsent', max_subjects=14999)),
+                        Cap(model_name='bcpp_subject.subjectconsent', max_subjects=99999)),
+            SubjectType('subject', 'Anonymous Research Subject',
+                        Cap(model_name='bcpp_subject.anonymousconsent', max_subjects=9999)),
         ]
         study_open_datetime = datetime(
             2013, 10, 18, 0, 0, 0, tzinfo=gettz('UTC'))
